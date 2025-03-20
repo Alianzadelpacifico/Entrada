@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const token = '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'; // Reemplaza con tu token de GitHub
         const repo = 'Alianzadelpacifico/Entrada'; // Reemplaza con tu repositorio
 
-        fetch(`https://api.github.com/repos/${repo}/contents/${nombre}.json`, {
+        fetch(`https://api.github.com/repos/${repo}/${nombre}.json`, {
             method: 'GET',
             headers: {
                 'Authorization': `token ${token}`,
