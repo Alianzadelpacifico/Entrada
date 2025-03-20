@@ -1,0 +1,78 @@
+@keyframes vibrar {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-2px); }
+    50% { transform: translateX(2px); }
+    75% { transform: translateX(-2px); }
+    100% { transform: translateX(0); }
+}
+
+.vibrar {
+    animation: vibrar 0.3s linear;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #e0f7fa;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Cambiado de center a flex-start */
+    height: 100vh;
+    margin: 0;
+    padding-top: 50px; /* Añadido para mover el cuadro más arriba */
+}
+
+.container {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 300px; /* Añadido para un ancho fijo */
+}
+
+.container h1 {
+    margin-bottom: 10px;
+    color: #00796b;
+}
+
+.container h2 {
+    margin-bottom: 20px;
+    color: #00796b;
+}
+
+.container .logo {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+}
+
+.container button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px; /* Añadido para espacio entre botones */
+}
+
+.container button:hover {
+    background-color: #0056b3;
+}
+
+.hidden {
+    display: none;
+}
+
+#codigoTicket {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #00796b;
+}
+
+#mensajeTiempoRestante {
+    margin-top: 20px;
+    font-size: 16px;
+    color: #ff0000;
+}

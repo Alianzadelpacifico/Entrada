@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Alianza del Pacífico</title>
+    <link rel="stylesheet" href="Form.css">
+    <script src="Form.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <div class="left-panel" id="leftPanel">
+            <div class="menu-btn" id="menuBtn">
+                &#9776;
+            </div>
+            <div class="header">
+                <img src="WhatsApp Image 2025-03-09 at 17.03.14.jpeg" alt="Logo" class="logo">
+                <p id="codigoTicket"></p>
+                <button id="verTicketsBtn" onclick="location.href='Form.html'">Ver Tickets</button><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+                <button id="cerrarSesionBtn">Cerrar Sesión</button>
+            </div>
+        </div>
+        <div class="right-panel">
+            <h1>Formularios enviados por los usuarios</h1>
+            <div id="formulariosContainer"></div>
+        </div>
+    </div>
+
+    <!-- Cuadro de diálogo para solicitar el usuario y la contraseña -->
+    <div id="passwordDialog" class="hidden">
+        <div class="dialog-content">
+            <h2>Confirmar Cierre de Sesión</h2>
+            <input type="text" id="usernameInput" placeholder="Nombre de usuario">
+            <input type="password" id="passwordInput" placeholder="Contraseña">
+            <button id="confirmarBtn">Confirmar</button>
+            <button id="cancelarBtn">Cancelar</button>
+        </div>
+    </div>
+
+    <!-- Botón flotante de volver al inicio -->
+    <button id="volverInicioBtn" class="hidden floating-btn">Volver al inicio</button>
+</body>
+</html>

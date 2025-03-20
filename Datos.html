@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario</title>
+    <link rel="stylesheet" href="Datos.css">
+    <script src="Datos.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <div class="left-panel" id="leftPanel">
+            <div class="menu-btn" id="menuBtn">
+                &#9776;
+            </div>
+            <div class="header">
+                <img src="WhatsApp Image 2025-03-09 at 17.03.14.jpeg" alt="Logo" class="logo">
+                <p id="codigoTicket"></p>
+                <div class="footer">
+                    <a href="Datos.html" class="link special-link">Formulario</a>
+                    <a href="Quienes somos.html" class="link">Quienes somos</a>
+                    <a href="https://www.tiktok.com/@alianzadecamiones?is_from_webapp=1&sender_device=pc" class="link tiktok-link" target="_blank">
+                        <img src="tiktok.png" alt="TikTok" class="tiktok-logo">
+                        <a href="user%20o%20admin.html" class="link home-link"  style="font-size: 40px;">🏠</a>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="right-panel">
+            <h1 class="highlight">Formulario para entrar a Alianza del Pacífico</h1>
+            <form id="formularioIngreso">
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" required>
+                
+                <label for="edad">Edad:</label>
+                <input type="number" id="edad" name="edad" min="1" max="100" required>
+                
+                <label for="nacionalidad">Nacionalidad:</label>
+                <select id="nacionalidad" name="nacionalidad" required>
+                    <!-- Lista de países se llenará dinámicamente -->
+                </select>
+                
+                <label for="telefono">Número de teléfono:</label>
+                <div>
+                    <input type="text" id="codigoPais" name="codigoPais" readonly style="width: 50px;">
+                    <input type="tel" id="telefono" name="telefono" required>
+                </div>
+                
+                <label for="residencia">Donde vive actualmente:</label>
+                <input type="text" id="residencia" name="residencia" required>
+                
+                <label for="motivo">Por qué quiere pertenecer a Alianza del Pacífico:</label>
+                <textarea id="motivo" name="motivo" required></textarea>
+                
+                <label for="experiencia">Ha pertenecido a alguna otra empresa antes?:</label>
+                <textarea id="experiencia" name="experiencia" required></textarea>
+                
+                <label for="empresaActual">Actualmente pertenece a alguna empresa:</label>
+                <textarea id="empresaActual" name="empresaActual" required></textarea>
+                
+                <label for="categoria">Escoja su categoría:</label>
+                <div>
+                    <input type="radio" id="busSimulator" name="categoria" value="Bus simulator ultimate" required>
+                    <label for="busSimulator">Bus simulator ultimate</label>
+                </div>
+                <div>
+                    <input type="radio" id="truckSimulator" name="categoria" value="Truck Simulator Ultimate" required>
+                    <label for="truckSimulator">Truck Simulator Ultimate</label>
+                </div>
+                <div>
+                    <input type="radio" id="ambas" name="categoria" value="Ambas" required>
+                    <label for="ambas">Ambas</label>
+                </div>
+
+                <div class="rules">
+                    <h2>Reglas de la empresa:</h2>
+                    <ol>
+                        <li>Respetar a los compañeros, tanto de la empresa, también a los compañeros que se unen en rutas y son de otras empresas.</li>
+                        <li>Participar en rutas, en caso de no poder participar en las rutas favor de avisar (🚨quien no participe en rutas en un lapso de 4 días seguidos será expulsado🚨).</li>
+                        <li>No compartir las skins con personas que no pertenezcan a la empresa.</li>
+                        <li>No compartir cosas indebidas en los grupos, respetar para que es cada grupo por favor.</li>
+                    </ol>
+                    <div>
+                        <input type="checkbox" id="aceptoReglas" name="aceptoReglas" required>
+                        <label for="aceptoReglas">Acepto las reglas</label>
+                    </div>
+                </div>
+                
+                <div id="mensajeAdvertencia" style="color: red; display: none;">Debes responder a todas las preguntas</div>
+                
+                <button type="submit" id="submitBtn">Enviar</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,332 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.menu-btn {
+    font-size: 30px;
+    cursor: pointer;
+    z-index: 1000;
+    margin-bottom: 20px;
+}
+
+.container {
+    display: flex;
+    width: 90%;
+    height: 90%;
+    background-color: #ffffff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.left-panel {
+    width: 250px;
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    transition: width 0.3s ease;
+    overflow: hidden;
+    position: relative;
+}
+
+.left-panel.open {
+    width: 25%;
+}
+
+.left-panel .logo {
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.left-panel .footer {
+    position: absolute;
+    bottom: 20px;
+    width: 210px;
+}
+
+.left-panel .link {
+    color: #fff;
+    text-decoration: none;
+    display: block;
+    margin: 10px 0;
+}
+
+.left-panel .special-link {
+    font-weight: bold;
+}
+
+.left-panel .tiktok-logo {
+    width: 70px;
+    height: auto;
+    border-radius: 40px;
+}
+
+.right-panel {
+    flex: 1;
+    padding: 20px;
+    transition: width 0.3s ease;
+    background-color: #ffffff;
+    position: relative;
+    overflow-y: auto;
+}
+
+.right-panel.shrink {
+    width: 75%;
+}
+
+.header, .info, .content-box {
+    display: none;
+}
+
+.left-panel.open .header, .left-panel.open .info, .left-panel.open .content-box {
+    display: block;
+}
+
+.header {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+.header .logo {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.header #codigoTicket {
+    font-size: 18px;
+    color: #00796b;
+    font-weight: bold;
+}
+
+.info {
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+.footer {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.footer .link {
+    color: #00796b;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.footer .link.special-link {
+    color: #000000;
+    background-color: #b3e5fc;
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+
+.footer .link:last-child {
+    margin-bottom: 5px;
+}
+
+.footer .link:hover {
+    text-decoration: underline;
+}
+
+.highlight {
+    color: #000000;
+    font-size: 50px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.sub-highlight {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.content-box {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 10px;
+}
+
+.content-box h1 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form label {
+    margin-bottom: 5px;
+    color: #00796b;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+form input,
+form textarea {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+form input[type="radio"] {
+    margin-right: 10px;
+}
+
+form input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+form button {
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+form button:hover {
+    background-color: #0056b3;
+}
+
+.Somos {
+    color: #000000;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.Truck {
+    border-radius: 40px;
+}
+
+.Bus {
+    border-radius: 40px;
+    margin-left: 250px;
+}
+
+/* Estilos para el mensaje de aceptación */
+.acceptance-message {
+    background-color: #d4edda;
+    color: #155724;
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.acceptance-message button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background: linear-gradient(to left, #004f13, #00ff37);
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.acceptance-message button:hover {
+    background-color: #218838;
+}
+
+/* Estilos para el mensaje de rechazo */
+.rejection-message {
+    background: linear-gradient(to right, #ff0000, #ffa500);
+    color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.rejection-message button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background: linear-gradient(to left, #ff0000, #ffa500);
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.rejection-message button:hover {
+    background-color: #ff4500;
+}
+
+/* Media Queries para hacer la página responsiva */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .left-panel {
+        width: 100%;
+        height: auto;
+        box-shadow: none;
+    }
+
+    .right-panel {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .left-panel.open {
+        width: 100%;
+    }
+
+    .right-panel.shrink {
+        width: 100%;
+    }
+
+    .footer {
+        position: static;
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .highlight {
+        font-size: 30px;
+    }
+
+    .sub-highlight {
+        font-size: 16px;
+    }
+
+    .footer .link {
+        font-size: 16px;
+    }
+}

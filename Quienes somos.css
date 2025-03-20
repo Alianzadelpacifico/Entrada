@@ -1,0 +1,165 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #e0f7fa;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.menu-btn {
+    font-size: 30px;
+    cursor: pointer;
+    z-index: 1000;
+    margin-bottom: 20px;
+}
+
+.container {
+    display: flex;
+    width: 90%; /* Ajustado para ocupar más de la pantalla */
+    height: 90%; /* Ajustado para ocupar más de la pantalla */
+    background-color: #ffffff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.left-panel {
+    width: 50px; /* Ajustado para mostrar solo las tres rayitas cuando no esté desplegado */
+    background-color: #b3e5fc; /* Azul celeste */
+    padding: 10px; /* Reducido el padding */
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    transition: width 0.3s ease;
+    overflow: hidden;
+    position: relative;
+}
+
+.left-panel.open {
+    width: 25%; /* Reducido para darle menos anchura */
+}
+
+.right-panel {
+    width: calc(100% - 50px); /* Ajustado para corresponder con el nuevo ancho del panel izquierdo */
+    padding: 10px; /* Reducido el padding */
+    transition: width 0.3s ease;
+    background-color: #ffffff; /* Blanco */
+    position: relative;
+}
+
+.right-panel.shrink {
+    width: 75%; /* Ajustado para corresponder con el nuevo ancho del panel izquierdo */
+}
+
+.header, .info, .content-box {
+    display: none; /* Ocultar por defecto */
+}
+
+.left-panel.open .header, .left-panel.open .info, .left-panel.open .content-box {
+    display: block; /* Mostrar cuando el panel izquierdo esté abierto */
+}
+
+.header {
+    display: flex;
+    align-items: flex-start; /* Alineado al borde izquierdo */
+    flex-direction: column;
+    margin-bottom: 10px; /* Reducido el margen */
+}
+
+.header .logo {
+    width: 60px; /* Aumentado el tamaño */
+    height: 60px; /* Aumentado el tamaño */
+    border-radius: 50%;
+    margin-bottom: 10px; /* Reducido el margen */
+}
+
+.header #codigoTicket {
+    font-size: 18px; /* Aumentado el tamaño de la fuente */
+    color: #00796b;
+    font-weight: bold; /* Texto en negrita */
+}
+
+.info {
+    margin-top: 10px; /* Reducido el margen */
+    font-size: 14px; /* Reducido el tamaño de la fuente */
+}
+
+.footer {
+    margin-top: 10px; /* Añadido margen superior */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Alineado al borde izquierdo */
+}
+
+.footer .link {
+    color: #00796b;
+    text-decoration: none;
+    font-size: 18px; /* Aumentado el tamaño de la fuente */
+    font-weight: bold; /* Texto en negrita */
+    margin-bottom: 20px; /* Aumentado el margen inferior */
+}
+
+.footer .link.special-link {
+    color: #000000; /* Texto en negro */
+    background-color: #b3e5fc; /* Fondo azul celeste */
+    padding: 5px 10px; /* Añadido padding */
+    border-radius: 4px; /* Añadido borde redondeado */
+}
+
+.footer .link:last-child {
+    margin-bottom: 5px; /* Añadido margen inferior para el último enlace */
+}
+
+.footer .link:hover {
+    text-decoration: underline;
+}
+
+.highlight {
+    color: #000000; /* Texto en negro */
+    font-size: 20px; /* Aumentado el tamaño de la fuente */
+    font-weight: bold; /* Texto en negrita */
+}
+
+.content-box {
+    background-color: #ffffff; /* Fondo blanco */
+    padding: 10px; /* Reducido el padding */
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 10px; /* Reducido el margen */
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form label {
+    margin-bottom: 5px;
+    color: #00796b;
+    font-size: 18px; /* Aumentado el tamaño de la fuente */
+    font-weight: bold; /* Texto en negrita */
+}
+
+form input {
+    margin-bottom: 10px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 18px; /* Aumentado el tamaño de la fuente */
+}
+
+form button {
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 18px; /* Aumentado el tamaño de la fuente */
+    font-weight: bold; /* Texto en negrita */
+}
+
+form button:hover {
+    background-color: #0056b3;
+}
