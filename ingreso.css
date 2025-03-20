@@ -1,3 +1,4 @@
+/* Estilos base */
 body {
     font-family: Arial, sans-serif;
     background-color: #e0f7fa;
@@ -49,4 +50,36 @@ body {
 
 .container button:hover {
     background-color: #0056b3;
-} 
+}
+
+/* Media Queries */
+@media (max-width: 600px) {
+    .container {
+        width: 90%;
+        padding: 15px;
+    }
+
+    .container .logo {
+        width: 100px;
+        height: 100px;
+    }
+
+    .container input, .container button {
+        padding: 8px;
+    }
+}
+
+@media (max-width: 400px) {
+    .container h1 {
+        font-size: 1.5rem;
+    }
+
+    .container .logo {
+        width: 80px;
+        height: 80px;
+    }
+
+    .container input, .container button {
+        padding: 6px;
+    }
+}
