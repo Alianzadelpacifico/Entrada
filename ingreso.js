@@ -1,10 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('ingresoForm');
-    const nombreInput = document.querySelector('input[name="nombre"]');
-    const emailInput = document.querySelector('input[name="email"]');
-    const passwordInput = document.querySelector('input[name="password"]');
 
-    form.addEventListener('submit', function(event) {
+    form.addEventListener('submit', async function(event) {
         event.preventDefault();
 
         const formData = new FormData(form);
@@ -14,16 +11,6 @@ document.addEventListener('DOMContentLoaded', function() {
         const password = formData.get('password');
 
         if (action === 'crear_cuenta') {
-            // Verificar el número de cuentas creadas
-            let cuentasCreadas = localStorage.getItem('cuentasCreadas');
-            cuentasCreadas = cuentasCreadas ? parseInt(cuentasCreadas) : 0;
-
-            if (cuentasCreadas >= 2) {
-                alert('Se ha alcanzado el límite máximo de dos cuentas.');
-                return;
-            }
-
-            // Validar campos obligatorios
             if (!nombre || !email || !password) {
                 alert('Por favor, complete todos los campos obligatorios.');
                 return;
@@ -35,25 +22,52 @@ document.addEventListener('DOMContentLoaded', function() {
                 password: password
             };
 
-            const token = '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'; // Reemplaza con tu token de GitHub válido y con permisos de `repo`
-            const repo = 'Alianzadelpacifico/Entrada'; // Reemplaza con tu repositorio correcto
+            const token = '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'; // Reemplaza con tu token de GitHub
+            const repo = 'Alianzadelpacifico/Formulario'; // Reemplaza con tu repositorio
+            const path = `${nombre}.json`; // Ruta del archivo en el repositorio
 
-            fetch(`https://api.github.com/repos/${repo}/contents/${nombre}.json`, {
+            const url = `https://api.github.com/repos/${repo}/contents/${path}`;
+
+            let sha = null;
+
+            try {
+                // Verifica si el archivo ya existe en GitHub
+                const response = await fetch(url, {
+                    method: 'GET',
+                    headers: {
+                        'Authorization': `token ${token}`
+                    }
+                });
+
+                if (response.ok) {
+                    const fileData = await response.json();
+                    sha = fileData.sha; // Obtiene el SHA para actualizar el archivo
+                }
+            } catch (error) {
+                console.warn('El archivo no existe, se creará uno nuevo.');
+            }
+
+            // Convierte los datos en Base64 correctamente
+            const encodedData = btoa(unescape(encodeURIComponent(JSON.stringify(data))));
+
+            const body = {
+                message: sha ? 'Actualizar cuenta existente' : 'Crear nueva cuenta',
+                content: encodedData,
+                sha: sha // Si el archivo ya existe, GitHub requiere el SHA
+            };
+
+            fetch(url, {
                 method: 'PUT',
                 headers: {
                     'Authorization': `token ${token}`,
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({
-                    message: 'Crear nueva cuenta',
-                    content: btoa(JSON.stringify(data))
-                })
+                body: JSON.stringify(body)
             })
             .then(response => response.json())
             .then(data => {
                 if (data.content) {
                     alert('Cuenta creada exitosamente');
-                    localStorage.setItem('cuentasCreadas', cuentasCreadas + 1);
                     window.location.href = 'Bienvenida.html';
                 } else {
                     alert('Hubo un problema al crear la cuenta.');
@@ -63,16 +77,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 console.error('Error:', error);
                 alert('Hubo un problema con la solicitud');
             });
-        }
-    });
-
-    // Validar campos solo cuando se va a crear una cuenta
-    form.addEventListener('click', function(event) {
-        const action = event.target.value;
-        if (action === 'crear_cuenta') {
-            nombreInput.required = true;
-            emailInput.required = true;
-            passwordInput.required = true;
         }
     });
 });
