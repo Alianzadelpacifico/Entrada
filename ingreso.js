@@ -35,8 +35,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 password: password
             };
 
-            const token = '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'; // Reemplaza con tu token de GitHub
-            const repo = 'Alianzadelpacifico/Entrada'; // Reemplaza con tu repositorio
+            const token = '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'; // Reemplaza con tu token de GitHub válido y con permisos de `repo`
+            const repo = 'Alianzadelpacifico/Entrada'; // Reemplaza con tu repositorio correcto
 
             fetch(`https://api.github.com/repos/${repo}/contents/${nombre}.json`, {
                 method: 'PUT',
