@@ -22,42 +22,20 @@ document.addEventListener('DOMContentLoaded', function() {
 
         const token = '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'; // Reemplaza con tu token de GitHub
         const repo = 'Alianzadelpacifico/Entrada'; // Reemplaza con tu repositorio
-        const path = `${nombre}.json`; // Ruta del archivo en el repositorio
+        const path = `${nombre}.json`; // Ruta del archivo en el repositorio (nombre dinámico)
 
         const url = `https://api.github.com/repos/${repo}/contents/${path}`;
-
-        let sha = null;
-
-        try {
-            // Verifica si el archivo ya existe en GitHub
-            const response = await fetch(url, {
-                method: 'GET',
-                headers: {
-                    'Authorization': `token ${token}`
-                }
-            });
-
-            if (response.ok) {
-                const fileData = await response.json();
-                sha = fileData.sha; // Obtiene el SHA para actualizar el archivo
-            } else {
-                console.warn('El archivo no existe, se creará uno nuevo.');
-            }
-        } catch (error) {
-            console.warn('Error al intentar verificar la existencia del archivo. El archivo no existe, se creará uno nuevo.');
-        }
 
         // Convierte los datos en Base64 correctamente
         const encodedData = btoa(unescape(encodeURIComponent(JSON.stringify(data))));
 
         const body = {
-            message: sha ? 'Actualizar cuenta existente' : 'Crear nueva cuenta',
-            content: encodedData,
-            sha: sha // Si el archivo ya existe, GitHub requiere el SHA
+            message: 'Crear nueva cuenta', // Mensaje para el commit
+            content: encodedData, // Datos en base64 que se van a guardar en el archivo
         };
 
         try {
-            // Llamada PUT para crear o actualizar el archivo en el repositorio
+            // Llamada PUT para crear un nuevo archivo en el repositorio
             const response = await fetch(url, {
                 method: 'PUT',
                 headers: {
