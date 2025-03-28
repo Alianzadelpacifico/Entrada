@@ -67,8 +67,8 @@ document.addEventListener('DOMContentLoaded', function() {
             .then(response => response.json())
             .then(data => {
                 if (data.content) {
-                    alert('Cuenta creada exitosamente');
-                    window.location.href = 'Bienvenida.html';
+                    alert('Cuenta creada exitosamente, por favor inicie sesión');
+                    // No redirige a Bienvenida.html
                 } else {
                     alert('Hubo un problema al crear la cuenta.');
                 }
