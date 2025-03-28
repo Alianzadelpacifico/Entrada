@@ -92,8 +92,8 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     function guardarFormularioEnGitHub(codigo, formulario) {
-        const token = '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'; // Reemplaza con tu token de GitHub
-        const repo = 'Alianzadelpacifico/Entrada'; // Reemplaza con tu repositorio
+        const token = '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'; // Reemplaza con tu token de GitHub
+        const repo = 'Alianzadelpacifico/formulario'; // Reemplaza con tu repositorio
         const path = `formularios/${codigo}2.json`; // Ruta donde se guardará el archivo
 
         const contenido = JSON.stringify(formulario);
@@ -122,8 +122,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Mostrar mensaje de aceptación o rechazo si el usuario ha sido aceptado o rechazado
     if (codigoTicket) {
-        const token = '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'; // Reemplaza con tu token de GitHub
-        const repo = 'Alianzadelpacifico/Entrada'; // Reemplaza con tu repositorio
+        const token = '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'; // Reemplaza con tu token de GitHub
+        const repo = 'Alianzadelpacifico/Formulario'; // Reemplaza con tu repositorio
 
         fetch(`https://api.github.com/repos/${repo}/contents/formularios/${codigoTicket}.json`, {
             method: 'GET',
@@ -173,8 +173,8 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function eliminarTodosLosFormularios() {
-        const token = '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'; // Reemplaza con tu token de GitHub
-        const repo = 'Alianzadelpacifico/Entrada'; // Reemplaza con tu repositorio
+        const token = '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'; // Reemplaza con tu token de GitHub
+        const repo = 'Alianzadelpacifico/Formulario'; // Reemplaza con tu repositorio
 
         fetch(`https://api.github.com/repos/${repo}/contents/formularios`, {
             method: 'GET',
