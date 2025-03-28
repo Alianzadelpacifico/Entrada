@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function() {
             password: password
         };
 
-        const token = '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'; // Reemplaza con tu token de GitHub
+        const token = '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'; // Reemplaza con tu token de GitHub
         const repo = 'Alianzadelpacifico/Entrada'; // Reemplaza con tu repositorio
         const path = `${nombre}.json`; // Ruta del archivo en el repositorio (nombre dinámico)
 
