@@ -22,8 +22,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 password: password
             };
 
-            const token = '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'; // Reemplaza con tu token de GitHub
-            const repo = 'Alianzadelpacifico/Formulario'; // Reemplaza con tu repositorio
+            const token = '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'; // Reemplaza con tu token de GitHub
+            const repo = 'Alianzadelpacifico/Entrada'; // Reemplaza con tu repositorio
             const path = `${nombre}.json`; // Ruta del archivo en el repositorio
 
             const url = `https://api.github.com/repos/${repo}/contents/${path}`;
