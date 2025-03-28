@@ -22,9 +22,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 password: password
             };
 
-            const token = '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'; // Reemplaza con tu token de GitHub
-            const repo = 'Alianzadelpacifico/Entrada'; // Reemplaza con tu repositorio
-            const path = `${nombre}.json`; // Ruta del archivo en el repositorio
+            const token = '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';  // Reemplaza con tu token de GitHub
+            const repo = 'Alianzadelpacifico/Entrada';  // Reemplaza con tu repositorio
+            const path = `${nombre}.json`;  // Ruta del archivo en el repositorio
 
             const url = `https://api.github.com/repos/${repo}/contents/${path}`;
 
@@ -42,9 +42,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (response.ok) {
                     const fileData = await response.json();
                     sha = fileData.sha; // Obtiene el SHA para actualizar el archivo
+                } else {
+                    console.warn('El archivo no existe, se creará uno nuevo.');
                 }
             } catch (error) {
-                console.warn('El archivo no existe, se creará uno nuevo.');
+                console.warn('Error al intentar verificar la existencia del archivo. El archivo no existe, se creará uno nuevo.');
             }
 
             // Convierte los datos en Base64 correctamente
@@ -56,27 +58,29 @@ document.addEventListener('DOMContentLoaded', function() {
                 sha: sha // Si el archivo ya existe, GitHub requiere el SHA
             };
 
-            fetch(url, {
-                method: 'PUT',
-                headers: {
-                    'Authorization': `token ${token}`,
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(body)
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.content) {
+            try {
+                // Llamada PUT para crear o actualizar el archivo en el repositorio
+                const response = await fetch(url, {
+                    method: 'PUT',
+                    headers: {
+                        'Authorization': `token ${token}`,
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(body)
+                });
+
+                const result = await response.json();
+                if (result.content) {
                     alert('Cuenta creada exitosamente, por favor inicie sesión');
-                    // No redirige a Bienvenida.html
+                    // Redirige a otra página si lo deseas:
+                    // window.location.href = 'Bienvenida.html';
                 } else {
                     alert('Hubo un problema al crear la cuenta.');
                 }
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                alert('Hubo un problema con la solicitud');
-            });
+            } catch (error) {
+                console.error('Error al crear la cuenta:', error);
+                alert('Hubo un problema con la solicitud.');
+            }
         }
     });
 });
